@@ -25,19 +25,19 @@
              <div id="calc-part" class="col-lg-5 col-sm-12  text-center p-2">
                  <div>
                      <h3 class=" m-2">Income</h3>
-                     <p>Income : <input type="text"></p>
+                     <p>Income : <input id="income-input" type="text" value="0"></p>
                 
                      <h3 class=" m-2">Expenses</h3>
-                     <p>Food :   <input type="text"></p>
-                     <p>Rent :   <input type="text"></p>
-                     <p>Clothes: <input type="text"></p> 
+                     <p>Food :   <input id="food-input" type="text" value="0"></p>
+                     <p>Rent :   <input id="rent-input" type="text" value="0"></p>
+                     <p>Clothes: <input id="colthes-input" type="text" value="0"></p> 
                      </div>
                      <div>
-                         <button class="bg-info">Calculate</button>
+                         <button id="calc-btn" class="bg-info">Calculate</button>
                      </div>
                      <div>
-                         <h4>Total Expense: 5000</h4>
-                         <h4>Balance: 5000</h4>
+                         <h4>Total Expense: <span id="total-expense">00</span></h4>
+                         <h4>Balance: <span id="total">00</span></h4>
                      </div>
 
                      <div>
@@ -58,6 +58,7 @@
     </footer>
 
     <!--Js link-->
+
     <script src="js/app.js"></script>
 </body>
 </html>
