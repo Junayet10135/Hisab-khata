@@ -118,9 +118,10 @@ function ExpensesError(){
            expenses.innerText = 0;
         }
         else{
+
             //set value in total Expense
 
-    expenses.innerText = finalTotalExpense;
+     expenses.innerText = finalTotalExpense;
 
        
     //Calculation For Balance

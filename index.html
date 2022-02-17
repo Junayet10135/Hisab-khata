@@ -14,7 +14,7 @@
 <body>
     <!--Header Section-->
     <header class="container">
-        <h1 class="text-center mt-4">HISAB KHATA</h1>
+        <h1 class="text-center mt-4 text-info">HISAB KHATA</h1>
     </header>
     <main class="container mt-4">
         <div class="row">
@@ -26,15 +26,15 @@
              <div id="calc-part" class="col-lg-5 col-sm-12  text-center p-2">
                  <div class="p-4">
                      <h3 class=" m-2">Income</h3>
-                     <p>Income : <input id="income-input" type="text" value="0"></p>
+                     <p>Income : <input class="mt-2" id="income-input" type="text" value="0"></p>
                 
-                     <h3 class=" m-2">Expenses</h3>
+                     <h3 class=" m-2 p-3">Expenses</h3>
                      <p>Food :   <input id="food-input" type="text" value="0"></p>
                      <p>Rent :   <input id="rent-input" type="text" value="0"></p>
                      <p>Clothes: <input id="colthes-input" type="text" value="0"></p> 
                      </div>
                      <div>
-                         <button id="calc-btn" class="">Calculate</button>
+                         <button id="calc-btn" class="bg-info">Calculate</button>
                      </div>
                      <div>
                          <h4>Total Expense: <span id="total-expense">00</span></h4>
@@ -42,12 +42,13 @@
                      </div>
 
                      <div>
-                         <p>Save: <input id="save-input" type="text" value="0">  %  <button id="save-btn">Save</button></p>
+                         <p>Save: <input id="save-input" type="text" value="0">  %  <button id="save-btn" class="bg-info">Save</button></p>
 
                          <h5>Saving Amount: <span id="saving-amount">00</span></h5>
                          <h5>Remaining Balance: <span id="Rem-balance">00</span></h5>
                      </div>
                  
+                     <h6 class="text-danger m-3">Please Reload After Every Condition check </h6>
             </div>
            
 

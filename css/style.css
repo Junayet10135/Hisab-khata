@@ -26,7 +26,7 @@ input{
 }
 #calc-btn{
     border: none;
-    background-color: rgba(35, 32, 209, 0.76);
+    
     padding: 10px 10px;
     border-radius: 10px;
     color: white;
@@ -34,7 +34,7 @@ input{
 }
 #save-btn {
     border: none;
-    background-color: rgba(35, 32, 209, 0.76);
+    
     padding: 10px 20px;
     border-radius: 10px;
     color: white;
