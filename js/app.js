@@ -5,10 +5,12 @@ function typeError(){
 const failNotify = document.getElementById('notify-fail');
     const negativeNotify = document.getElementById('negative-value');
     const moneyEfficiency = document.getElementById('money-efficiency');
+    const expenseError = document.getElementById('Expenses-error');
 
     failNotify.style.display = 'block';
     negativeNotify.style.display = 'none';
     moneyEfficiency.style.display = 'none';
+    expenseError.style.display = 'none';
 
 };
 //if input is not positive number
@@ -16,10 +18,12 @@ function negativeValue(){
     const failNotify = document.getElementById('notify-fail');
     const negativeNotify = document.getElementById('negative-value');
     const moneyEfficiency = document.getElementById('money-efficiency');
+    const expenseError = document.getElementById('Expenses-error');
 
     negativeNotify.style.display = 'block';
     failNotify.style.display = 'none';
     moneyEfficiency.style.display = 'none';
+    expenseError.style.display = 'none';
 };
 
 // for money efficiency problem
@@ -28,8 +32,22 @@ function savingsError(){
     const failNotify = document.getElementById('notify-fail');
     const negativeNotify = document.getElementById('negative-value');
     const moneyEfficiency = document.getElementById('money-efficiency');
+    const expenseError = document.getElementById('Expenses-error');
 
     moneyEfficiency.style.display = 'block';
+    negativeNotify.style.display = 'none';
+    failNotify.style.display = 'none';
+    expenseError.style.display = 'none';
+
+};
+function ExpensesError(){
+    const expenseError = document.getElementById('Expenses-error');
+    const negativeNotify = document.getElementById('negative-value');
+    const moneyEfficiency = document.getElementById('money-efficiency');
+    const failNotify = document.getElementById('notify-fail');
+
+    expenseError.style.display = 'block';
+    moneyEfficiency.style.display = 'none';
     negativeNotify.style.display = 'none';
     failNotify.style.display = 'none';
 
@@ -54,6 +72,7 @@ function savingsError(){
     const failNotify = document.getElementById('notify-fail');
     const negativeNotify = document.getElementById('negative-value');
     const moneyEfficiency = document.getElementById('money-efficiency');
+    const expenseError = document.getElementById('Expenses-error');
 
     //Calculation For Total Expense
 
@@ -94,7 +113,12 @@ function savingsError(){
         
         const finalTotalExpense = parseFloat(allThreeExpense) + parseFloat(totalExpense);
 
-    //set value in total Expense
+        if(income < finalTotalExpense){
+           ExpensesError();
+           expenses.innerText = 0;
+        }
+        else{
+            //set value in total Expense
 
     expenses.innerText = finalTotalExpense;
 
@@ -115,26 +139,21 @@ function savingsError(){
 
      negativeNotify.style.display = 'none';
      moneyEfficiency.style.display = 'none';
+            expenseError.style.display = 'none';
+        }
 
     }
 
     
- 
-
 } ;
-
-
 
 // Calling Calculate Button
 
 document.getElementById('calc-btn').addEventListener('click',function(){
     
-
-    generalEquation();
-  
+    generalEquation(); 
     
 });
-
 
 
 //Function for Save Button
@@ -156,6 +175,7 @@ function finalEquation(){
     const failNotify = document.getElementById('notify-fail');
     const negativeNotify = document.getElementById('negative-value');
     const moneyEfficiency = document.getElementById('money-efficiency');
+    const expenseError = document.getElementById('Expenses-error');
 
  if(isNaN(income)){
      typeError();
@@ -185,7 +205,7 @@ function finalEquation(){
     if(Balance < saveBalance){
 
         savingsError();
-
+        savingAmount.innerText = 0;
     }
     else{
         //value Set in Saing Amount
@@ -206,6 +226,7 @@ function finalEquation(){
     failNotify.style.display = 'none';
     negativeNotify.style.display = 'none';
     moneyEfficiency.style.display = 'none';
+    expenseError.style.display = 'none';
     }
 
      
