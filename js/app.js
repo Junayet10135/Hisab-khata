@@ -1,3 +1,54 @@
+//function for eroor handling
+
+//if input type is not number
+function typeError(){
+    const failNotify = document.getElementById('notify-fail');
+    const negativeNotify = document.getElementById('negative-value');
+    const moneyEfficiency = document.getElementById('money-efficiency');
+    const errorExpenses = document.getElementById('expenses-error');
+
+    failNotify.style.display = 'block';
+    negativeNotify.style.display = 'none';
+    moneyEfficiency.style.display = 'none';
+    errorExpenses.style.display = 'none';
+
+};
+//if input is not positive number
+function negativeValue(){
+    const failNotify = document.getElementById('notify-fail');
+    const negativeNotify = document.getElementById('negative-value');
+    const moneyEfficiency = document.getElementById('money-efficiency');
+    const errorExpenses = document.getElementById('expenses-error');
+
+    negativeNotify.style.display = 'block';
+    failNotify.style.display = 'none';
+    moneyEfficiency.style.display = 'none';
+    errorExpenses.style.display = 'none';
+};
+//Function for if saving > balance
+function savingsError(){
+    const failNotify = document.getElementById('notify-fail');
+    const negativeNotify = document.getElementById('negative-value');
+    const moneyEfficiency = document.getElementById('money-efficiency');
+    const errorExpenses = document.getElementById('expenses-error');
+
+    moneyEfficiency.style.display = 'block';
+    negativeNotify.style.display = 'none';
+    failNotify.style.display = 'none';
+    errorExpenses.style.display = 'none';
+
+};
+
+function expensesError(){
+    const failNotify = document.getElementById('notify-fail');
+    const negativeNotify = document.getElementById('negative-value');
+    const moneyEfficiency = document.getElementById('money-efficiency');
+    const errorExpenses = document.getElementById('expenses-error');
+    errorExpenses.style.display = 'block';
+    moneyEfficiency.style.display = 'none';
+    negativeNotify.style.display = 'none';
+    failNotify.style.display = 'none';
+}
 
 //Function for calculator Button
  function generalEquation(){
@@ -13,51 +64,50 @@
     const expenses = document.getElementById('total-expense');
     let allThreeExpense = expenses.innerText;
 
-    //Declare for eroor handeling
+    //Declare for eroor handling
 
     const failNotify = document.getElementById('notify-fail');
     const negativeNotify = document.getElementById('negative-value');
+    const moneyEfficiency = document.getElementById('money-efficiency');
+    const errorExpenses = document.getElementById('expenses-error');
 
     //Calculation For Total Expense
 
     //Error Handeling part
     if (isNaN(foodInput) ) {
 
-        failNotify.style.display = 'block';
-        negativeNotify.style.display = 'none';
-
-        
+        typeError();       
     }
 
     else if(foodInput<0){
-        negativeNotify.style.display = 'block';
-        failNotify.style.display = 'none';
+
+        negativeValue();
 
     }
     else if(isNaN(rentInput)){
-        failNotify.style.display = 'block';
-        negativeNotify.style.display = 'none';
+        typeError(); 
     }
     else if(rentInput<0){
-        negativeNotify.style.display = 'block';
-        failNotify.style.display = 'none';
+        negativeValue();
     }
 
     else if (isNaN(clothesInput)) {
-        failNotify.style.display = 'block';
-        negativeNotify.style.display = 'none';
+        typeError();
     }
 
     else if(clothesInput<0){
-        negativeNotify.style.display = 'block';
-        failNotify.style.display = 'none';
+        negativeValue();
     }
     else{
         const totalExpense = parseFloat(foodInput) + parseFloat(rentInput) + parseFloat(clothesInput);
         
         const finalTotalExpense = parseFloat(allThreeExpense) + parseFloat(totalExpense);
 
-    //set value in total Expense
+    if(income<finalTotalExpense){
+        expensesError();
+    }
+    else{
+        //set value in total Expense
 
     expenses.innerText = finalTotalExpense;
 
@@ -73,17 +123,16 @@
     //set value in Balance
 
     inputBalance.innerText =totalBalance;
+    
 
      failNotify.style.display = 'none';
-
      negativeNotify.style.display = 'none';
+     moneyEfficiency.style.display = 'none';
+     errorExpenses.style.display = 'none';
+    }
     }
 
-    
- 
-
 } ;
-
 
 
 // Calling Calculate Button
@@ -116,42 +165,46 @@ function finalEquation(){
 
     const failNotify = document.getElementById('notify-fail');
     const negativeNotify = document.getElementById('negative-value');
+    const moneyEfficiency = document.getElementById('money-efficiency');
+    const errorExpenses = document.getElementById('expenses-error');
 
  if (isNaN(income)){
 
-        failNotify.style.display = 'block';
-        negativeNotify.style.display = 'none';
-        
+        typeError();       
     }
     else if(income < 0){
-        negativeNotify.style.display = 'block';
-        failNotify.style.display = 'none';
+        negativeValue();
     }
 
     else if(isNaN(previousSaveInput)){
-        failNotify.style.display = 'block';
-        negativeNotify.style.display = 'none';
+        typeError();       
     }
     else if(previousSaveInput < 0){
-        negativeNotify.style.display = 'block';
-        failNotify.style.display = 'none';
+        negativeValue();
     }
 
  else{
+     const Balance = document.getElementById('total').innerText;
         //calculation for saving Amount
 
     const newSavePercent = parseFloat(previousSaveInput) + parseFloat(currentSave);
 
     const saveBalance = parseFloat(newSavePercent) / 100 * parseFloat(income);
 
-    //value Set in Saing Amount
 
-    savingAmount.innerText = saveBalance; 
+    
 
-     //calculation for Remining Amount
+    if(Balance < saveBalance){
 
-    const Balance = document.getElementById('total').innerText;
-     
+        savingsError();
+
+    }
+    else{
+        //value Set in Saing Amount
+    savingAmount.innerText = saveBalance;
+       
+      //calculation for Remining Amount
+ 
     const remAmount = parseFloat(Balance) - parseFloat(saveBalance);
 
     const bal = document.getElementById('Rem-balance');
@@ -162,10 +215,12 @@ function finalEquation(){
 
     failNotify.style.display = 'none';
     negativeNotify.style.display = 'none';
+    moneyEfficiency.style.display = 'none';
+    errorExpenses.style.display = 'none';
+    }
+     
  }
     
-  
-
 }
 document.getElementById('save-btn').addEventListener('click',function(){
     
