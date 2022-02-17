@@ -1,5 +1,7 @@
+/* import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+/* Common part */
 body{
 
 font-family: 'Poppins',
@@ -10,20 +12,22 @@ h1{
     font-family: 'Poppins',
     sans-serif;
     }
-
-#calc-part{
-    background-color: #F8F8F8;
-    
-
-    
-}
-input{
+input {
     background-color: #DCDCDC;
     border: none;
     width: 200px;
     height: 30px;
 
 }
+
+/* calling id for custom CSS edit */
+#calc-part{
+    background-color: #F8F8F8;
+    
+
+    
+}
+
 #calc-btn{
     border: none;
     
