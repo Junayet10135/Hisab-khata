@@ -10,18 +10,58 @@
     
     const clothesInput = document.getElementById('colthes-input').value;
 
-    //Calculation For Total Expense
-
-    const totalExpense = parseFloat(foodInput) + parseFloat(rentInput) + parseFloat(clothesInput);
-    
     const expenses = document.getElementById('total-expense');
     let allThreeExpense = expenses.innerText;
-    const finalTotalExpense = parseFloat(allThreeExpense) + parseFloat(totalExpense);
+
+    //Declare for eroor handeling
+
+    const failNotify = document.getElementById('notify-fail');
+    const negativeNotify = document.getElementById('negative-value');
+
+    //Calculation For Total Expense
+
+    //Error Handeling part
+    if (isNaN(foodInput) ) {
+
+        failNotify.style.display = 'block';
+        negativeNotify.style.display = 'none';
+
+        
+    }
+
+    else if(foodInput<0){
+        negativeNotify.style.display = 'block';
+        failNotify.style.display = 'none';
+
+    }
+    else if(isNaN(rentInput)){
+        failNotify.style.display = 'block';
+        negativeNotify.style.display = 'none';
+    }
+    else if(rentInput<0){
+        negativeNotify.style.display = 'block';
+        failNotify.style.display = 'none';
+    }
+
+    else if (isNaN(clothesInput)) {
+        failNotify.style.display = 'block';
+        negativeNotify.style.display = 'none';
+    }
+
+    else if(clothesInput<0){
+        negativeNotify.style.display = 'block';
+        failNotify.style.display = 'none';
+    }
+    else{
+        const totalExpense = parseFloat(foodInput) + parseFloat(rentInput) + parseFloat(clothesInput);
+        
+        const finalTotalExpense = parseFloat(allThreeExpense) + parseFloat(totalExpense);
 
     //set value in total Expense
 
     expenses.innerText = finalTotalExpense;
 
+       
     //Calculation For Balance
 
     const inputBalance = document.getElementById('total');
@@ -33,6 +73,12 @@
     //set value in Balance
 
     inputBalance.innerText =totalBalance;
+
+     failNotify.style.display = 'none';
+
+     negativeNotify.style.display = 'none';
+    }
+
     
  
 
@@ -66,7 +112,33 @@ function finalEquation(){
     
     const income = document.getElementById('income-input').value;
 
-    //calculation for saving Amount
+    //Declare for eroor handeling
+
+    const failNotify = document.getElementById('notify-fail');
+    const negativeNotify = document.getElementById('negative-value');
+
+ if (isNaN(income)){
+
+        failNotify.style.display = 'block';
+        negativeNotify.style.display = 'none';
+        
+    }
+    else if(income < 0){
+        negativeNotify.style.display = 'block';
+        failNotify.style.display = 'none';
+    }
+
+    else if(isNaN(previousSaveInput)){
+        failNotify.style.display = 'block';
+        negativeNotify.style.display = 'none';
+    }
+    else if(previousSaveInput < 0){
+        negativeNotify.style.display = 'block';
+        failNotify.style.display = 'none';
+    }
+
+ else{
+        //calculation for saving Amount
 
     const newSavePercent = parseFloat(previousSaveInput) + parseFloat(currentSave);
 
@@ -87,6 +159,10 @@ function finalEquation(){
  //value Set in Saing remining Balance
 
     bal.innerText =remAmount;
+
+    failNotify.style.display = 'none';
+    negativeNotify.style.display = 'none';
+ }
     
   
 
@@ -97,4 +173,4 @@ finalEquation();
 
 
     
-})
+});
