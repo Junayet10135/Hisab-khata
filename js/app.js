@@ -25,6 +25,8 @@ function negativeValue(){
 // for money efficiency problem
 
 function savingsError(){
+    const failNotify = document.getElementById('notify-fail');
+    const negativeNotify = document.getElementById('negative-value');
     const moneyEfficiency = document.getElementById('money-efficiency');
 
     moneyEfficiency.style.display = 'block';
@@ -178,8 +180,7 @@ function finalEquation(){
     const saveBalance = parseFloat(newSavePercent) / 100 * parseFloat(income);
 
 
-    //value Set in Saing Amount
-    savingAmount.innerText = saveBalance;
+    
 
     if(Balance < saveBalance){
 
@@ -187,6 +188,8 @@ function finalEquation(){
 
     }
     else{
+        //value Set in Saing Amount
+     savingAmount.innerText = saveBalance;
        
       //calculation for Remining Amount
 
